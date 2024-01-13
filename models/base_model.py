@@ -27,14 +27,15 @@ class BaseModel:
 
     def save(self):
         """
-        updates the public instance attribute "updated_at" 
+        updates the public instance attribute "updated_at"
         with the current datetime
         """
         self.updated_at = datetime.now()
 
     def to_dict(self):
         """
-        returns a dictionary containing all key/values of "__dict__" of the instance
+        returns a dictionary
+        containing all key/values of "__dict__" of the instance
         """
         inst_dict = {}
         for key, value in self.__dict__.items():
@@ -44,7 +45,7 @@ class BaseModel:
 
         inst_dict["__class__"] = type(self).__name__
         inst_dict["created_at"] = self.created_at.isoformat()
-        inst_dict["updated_at"] = self.created_at.isoformat()
+        inst_dict["updated_at"] = self.updated_at.isoformat()
         return inst_dict
 
 
