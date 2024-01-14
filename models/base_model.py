@@ -7,13 +7,14 @@ for other classes
 """
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
     """
     BaseModel class
     """
-    def __init__(self, *args, **kwargs): # pylint: disable=unused-argument
+    def __init__(self, *args, **kwargs):  # pylint: disable=unused-argument
         if kwargs:
             for key, value in kwargs.items():
                 if key == "__class__":
@@ -26,13 +27,15 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            # models.storage.new(self)
 
     def __str__(self):
         """
         string representation of Object when object is printed
         "[<class name>] (<self.id>) <self.__dict__>"
         """
-        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
+        return "[{}] ({}) {}".format(type(self).__name__,
+                                     self.id, self.__dict__)
 
     def save(self):
         """
@@ -40,6 +43,7 @@ class BaseModel:
         with the current datetime
         """
         self.updated_at = datetime.now()
+        # models.storage.save()
 
     def to_dict(self):
         """
