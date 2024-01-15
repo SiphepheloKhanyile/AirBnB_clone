@@ -52,6 +52,7 @@ class HBNBCommand(cmd.Cmd):
             return
         if cls_name not in self.p_classes:
             print("** class doesn't exist **")
+            return
         ob = self.csob[HBNBCommand.p_classes.index(cls_name)]()
         models.storage.save()
         print(ob.id)
