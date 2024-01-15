@@ -5,7 +5,12 @@ Allows users to interact with the program.
 """
 import cmd
 import models
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models.user import User
 
 
@@ -15,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
     """
     p_classes = \
         ['BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review']
-    csob = [BaseModel, User]  # State, City, Amenity, Place, Review]
+    csob = [BaseModel, User, State, City, Amenity, Place, Review]
     prompt = '(hbnb) '
 
     def do_quit(self, line):  # pylint: disable=W0613
