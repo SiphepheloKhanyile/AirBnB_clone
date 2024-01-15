@@ -8,13 +8,14 @@ import cmd
 import models
 from models import storage
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
+
 
 class HBNBCommand(cmd.Cmd):
     """
     Entry point class for the interpreter
     """
-    p_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review']
+    p_classes = \
+        ['BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review']
     csob = [BaseModel]  # [User, State, City, Amenity, Place, Review]
     prompt = '(hbnb) '
 
@@ -51,9 +52,10 @@ class HBNBCommand(cmd.Cmd):
         models.storage.save()
         print(ob.id)
 
-    def do_show(self, cls_id : str):
+    def do_show(self, cls_id: str):
         """
-        Prints the string representation of an instance based on the `class name` and `id`.
+        Prints the string representation of an instance based on:
+        the `class name` and `id`.
         Ex: `$ show BaseModel 1234-1234-1234.`
         """
         path = 'file.json'
@@ -80,9 +82,10 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, cls_id: str):
         """
         Deletes an instance based on:
-        the `class name` and `id` (save the change into the JSON file). Ex: `$ destroy BaseModel 1234-1234-1234`
+        the `class name` and `id` (save the change into the JSON file).
+        Ex: `$ destroy BaseModel 1234-1234-1234`
         """
-        args =cls_id.split(' ')
+        args = cls_id.split(' ')
         if len(args) == 1:
             if args[0] == '':
                 print("** class name missing **")
@@ -103,8 +106,8 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, cls_id: str):
         """
         Prints all string representation of all instances based or not on:
-        the `class name`. 
-        Ex: `$ all BaseModel or $ all`. 
+        the `class name`.
+        Ex: `$ all BaseModel or $ all`.
         """
         lst = []
         args = cls_id.split(" ")
@@ -113,12 +116,12 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 for k in models.storage.all().keys(): \
-                    # pylint: disable=C0201
+                        # pylint: disable=C0201
                     if k.split('.')[0] == args[0]:
                         lst.append(models.storage.all()[k])
         else:
             for k in models.storage.all().keys(): \
-                # pylint: disable=C0201
+                    # pylint: disable=C0201
                 lst.append(models.storage.all()[k])
 
         if lst:
@@ -131,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the:
         `class name` and `id` by adding or updating attribute
         (save the change into the JSON file).
-        Ex: `$ update BaseModel 1234-1234-1234 email "aibnb@mail.com"`. 
+        Ex: `$ update BaseModel 1234-1234-1234 email "aibnb@mail.com"`.
         Usage:
         `update <class name> <id> <attribute name> "<attribute value>"`
         """
