@@ -3,11 +3,10 @@
 The HBNBCommand class is an entry point for an interpreter.
 Allows users to interact with the program.
 """
-from ast import mod
 import cmd
 import models
-from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -16,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     """
     p_classes = \
         ['BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review']
-    csob = [BaseModel]  # [User, State, City, Amenity, Place, Review]
+    csob = [BaseModel, User]  # State, City, Amenity, Place, Review]
     prompt = '(hbnb) '
 
     def do_quit(self, line):  # pylint: disable=W0613
@@ -58,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         the `class name` and `id`.
         Ex: `$ show BaseModel 1234-1234-1234.`
         """
-        path = 'file.json'
+        path = 'file.json'  # pylint: disable=W0612
         o_dict = {}
         args = cls_id.split(' ')
 

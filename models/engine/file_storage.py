@@ -8,15 +8,16 @@ of objects.
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
 import models  # pylint: disable=unused-import
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "User": User}
 
 
 class FileStorage():
     """
     Serialize and Deserialize objects
     """
-
+    cls_name = ''
     __file_path = "file.json"
     __objects = {}
 
@@ -33,6 +34,7 @@ class FileStorage():
         if obj is not None:
             key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
+            FileStorage.cls_name = obj.__class__.__name__
 
     def save(self):
         """
