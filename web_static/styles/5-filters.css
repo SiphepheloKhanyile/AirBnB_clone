@@ -1,0 +1,80 @@
+/*
+============================================================
+Section .filters for locations, amenities and button styling
+============================================================
+*/
+.container .filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin: 0px;
+    display: flex;
+    justify-content: end;
+    /* text-align:left; */
+}
+/*
+================================
+Search button styling
+================================
+*/
+.filters .btn {
+    font-size: 14px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border-radius: 4px;
+    margin: auto 0;
+    margin-right: 30px;
+    border: 0px;
+}
+ .btn:hover {
+    opacity: 90%;
+    /* opacity: 0.9; */
+ }
+
+ /*
+ ===============================
+ locations and amenities styles
+ ===============================
+ */
+ .filters .locations, .filters .amenities {
+    /* background-color: aqua; */
+    height: 100%;
+    width: 25%;
+    padding-top: 10px;
+ }
+.filters .locations {
+    border-right: 1px solid #DDDDDD;
+}
+
+/*
+================================
+locations and amenities headers
+================================
+*/
+ .filters h3 {
+    font-weight: 600;
+    margin: 0px;
+    padding-top: 5px;
+    padding-left: 30px;
+    margin-bottom: 0px;
+ }
+
+ .filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 1px;
+    padding-left: 28px;
+ }
+
+ /*
+===============================================
+  Justify both .locations and .amenities left 
+===============================================
+  */
+.filters .amenities {
+    margin-right: auto;
+}

@@ -1,0 +1,45 @@
+/*
+================================
+Places H1 & H2 header Styling
+================================
+*/
+.container .places h1 {
+    font-size: 30px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.places h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+/*
+================================
+Places articles styling
+================================
+*/
+.places article {
+    width: 390px;
+    border: 1px solid #FF5A5F;
+    margin: 20px 20px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.places article {
+    text-align: center;
+}
+
+/*
+=================================
+Places articles container div
+=================================
+*/
+.places .places-div {
+    display: flex;
+    /* display: inline-block; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
